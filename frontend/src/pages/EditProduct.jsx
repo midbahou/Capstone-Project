@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom'
 
 function EditProduct() {
     const { id } = useParams();
-    const [ product, setProduct ] = useState({
+    // set to hold product data
+    const [product, setProduct] = useState({
         name: '',
         description: '',
         price: 0,
@@ -12,11 +13,12 @@ function EditProduct() {
         imageUrl: '',
     });
     const [loading, setLoading] = useState(true);
-    const url = "http://localhost:5000/api/products"
+    // const url = "http://localhost:5000/api/products"
 
+    // fetch product details to edit an existing product
     const fetchProduct = async () => {
         try {
-            const res = await axios.get(`${url}/${id}`);
+            const res = await axios.get(`http://localhost:4000/api/products/${id}`);
             setProduct(res.data);
             setLoading(false);
         } catch (err) {
@@ -41,7 +43,7 @@ function EditProduct() {
         )
     }
 
-    if (!product) {
+    if (!product && !id) {
         return (
             <div className="flex justify-center items-center h-screen">
                 <h1 className="text-2xl font-bold text-gray-600">Product not found</h1>
@@ -49,59 +51,78 @@ function EditProduct() {
         )
     };
 
+    // handle input changes dynamically
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        setProduct({...product, [name]: value });
+        const { name, value } = e.target;
+        setProduct({ ...product, [name]: value });
     };
 
+    // handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.patch(`${url}/${id}`, product);
-            alert('Product updated successfully!');
+            // update existing product
+            await axios.patch(`http://localhost:4000/api/products/${id}`, product);
+            alert('Product updated successfully');
             window.location.href = '/products'; // redirect to products list
         } catch (err) {
             console.error("Error updating product: ", err);
             alert('Failed to update product. Please try again.')
         }
-    }
+    };
 
-  return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Edit Product {product.name}</h1>
+    // render input field
+    const fields = [
+        { label: "Name", name: "name", type: "text" },
+        { label: "Description", name: "description", type: "textarea" },
+        { label: "Price", name: "price", type: "number" },
+        { label: "Category", name: "category", type: "text" },
+        { label: "Image URL", name: "imageUrl", type: "text" },
+    ];
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700">Name:</label>
-            <input 
-            type="text"
-            id='name'
-            value={product.name}
-            onChange={handleChange}
-            className='w-md px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500'
-            required
-            />
+    return (
+        <div className="p-6">
+            <h1 className="text-3xl font-bold text-gray-800 mb-6">{id ? 'Edit Product' : 'Add New Product'}</h1>
 
-            {/* <label htmlFor="description">description:</label>
-            <input 
-            type="text" 
-            id='description'
-            value={product.description}
-            onChange={handleChange}
-            className='w-md px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500'
-            required
-            /> */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+                {fields.map((field) => (
+                    <div key={field.name}>
+                        <label htmlFor={field.name} className='block text-gray-700'>
+                            {field.label}:
+                        </label>
+                        {field.type === 'textarea' ? (
+                            <textarea
+                                id={field.name}
+                                name={field.name}
+                                value={product[field.name]}
+                                onChange={handleChange}
+                                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                                required
+                            />
+                        ) : (
+                            <input
+                                type={field.type}
+                                id={field.name}
+                                name={field.name}
+                                value={product[field.name]}
+                                onChange={handleChange}
+                                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                                required
+                            />
+                        )}
+                    </div>
+                ))}
+
+
+                <button
+                    type="submit"
+                    className='px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors cursor-pointer'
+                >
+                    Update Product
+                </button>
+            </form>
         </div>
-
-        <button
-        type="submit"
-        className='px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors cursor-pointer'
-        >
-            Save Changes
-        </button>
-      </form>
-    </div>
-  )
+    )
 }
 
 export default EditProduct

@@ -41,7 +41,7 @@ function Nav() {
                         Cart
                         {/*  Add a badge for cart item count */}
                         <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                            2 {/* Replace with dynamic cart item count */}
+                            2 {/* this is a static value */}
                         </span>
                     </Link>
                 </div>

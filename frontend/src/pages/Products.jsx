@@ -41,7 +41,7 @@ function Products() {
                                 <img src={imageUrl} alt={name} className="w-full h-48 object-cover" />
                                 <div className="p-4">
                                     <h1 className="text-lg font-bold text-gray-800">
-                                        Name: {name}
+                                         {name}
                                     </h1>
                                     <h2 className="text-sm text-gray-600">
                                         Category: {category}
