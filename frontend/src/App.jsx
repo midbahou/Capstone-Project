@@ -5,6 +5,7 @@ import './App.css'
 import Nav from './components/Nav';
 import ProductDetails from './pages/ProductDetails';
 import CartPage from './pages/CartPage';
+import EditProduct from './pages/EditProduct';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Route path='/' element={ <HomePage />}/>
       <Route path='/products' element={ <Products />}/>
       <Route path='/products/:id' element={ <ProductDetails /> }/>
+      <Route path='/products/edit/:id' element={ <EditProduct /> }/>
       <Route path='/cart' element={ <CartPage />}/>
      </Routes>
 

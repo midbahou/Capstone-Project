@@ -46,9 +46,9 @@ function Products() {
                                     <h2 className="text-sm text-gray-600">
                                         Category: {category}
                                     </h2>
-                                    <p className="text-sm text-gray-700 mt-2 line-clamp-2">
+                                    {/* <p className="text-sm text-gray-700 mt-2 line-clamp-2">
                                         Description: {description}
-                                    </p>
+                                    </p> */}
                                     <h2 className="text-xl font-semibold text-green-600 mt-2">
                                         Price: ${price}
                                     </h2>
