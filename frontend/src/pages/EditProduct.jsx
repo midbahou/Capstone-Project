@@ -18,9 +18,11 @@ function EditProduct() {
     // fetch product details to edit an existing product
     const fetchProduct = async () => {
         try {
-            const res = await axios.get(`http://localhost:4000/api/products/${id}`);
-            setProduct(res.data);
-            setLoading(false);
+            if (id) {
+                const res = await axios.get(`http://localhost:4000/api/products/${id}`);
+                setProduct(res.data);
+                setLoading(false);
+            }
         } catch (err) {
             console.error("Error fetching product details: ", err);
             setLoading(false);
@@ -31,7 +33,7 @@ function EditProduct() {
         if (id) {
             fetchProduct();
         } else {
-            setLoading(false);
+            setLoading(false)
         }
     }, [id]);
 
@@ -43,13 +45,6 @@ function EditProduct() {
         )
     }
 
-    if (!product && !id) {
-        return (
-            <div className="flex justify-center items-center h-screen">
-                <h1 className="text-2xl font-bold text-gray-600">Product not found</h1>
-            </div>
-        )
-    };
 
     // handle input changes dynamically
     const handleChange = (e) => {
@@ -61,9 +56,15 @@ function EditProduct() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // update existing product
-            await axios.patch(`http://localhost:4000/api/products/${id}`, product);
-            alert('Product updated successfully');
+            if (id) {
+                // update existing product
+                await axios.patch(`http://localhost:4000/api/products/${id}`, product);
+                alert('Product Updated Successfully!');
+            } else {
+                // create new product
+                await axios.post(`http://localhost:4000/api/products`, product);
+                alert('Product Added Successfully!')
+            }
             window.location.href = '/products'; // redirect to products list
         } catch (err) {
             console.error("Error updating product: ", err);
@@ -118,7 +119,7 @@ function EditProduct() {
                     type="submit"
                     className='px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors cursor-pointer'
                 >
-                    Update Product
+                    {id ? 'Update Product' : 'Add Product'}
                 </button>
             </form>
         </div>

@@ -32,7 +32,15 @@ function Products() {
     const loaded = () => {
         return (
             <div className='p-6'>
+                <div className="flex justify-between items-center mb-6">
                 <h1 className='text-3xl font-bold text-gray-800 mb-6'>Product Listings</h1>
+                <Link
+                to='/products/new'
+                className="px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+                >
+                    Add New Product
+                </Link>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
                     {products.map((product) => {
                         const { _id, name, category, description, price, imageUrl } = product;
