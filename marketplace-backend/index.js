@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 // Routers
 import { healthRouter } from './routes/health.js';
 import { productRouter } from './routes/products.routes.js';
+import { userRouter } from './routes/user.routes.js';
 
 
 dotenv.config();
@@ -44,7 +45,7 @@ app.get('/', (req, res) => {
 app.use('/api/health', healthRouter); // this is the path we want to send the request to healthRouter
 app.use('/api/products', productRouter);
 app.use('/api/products/:id', productRouter)
-// app.use('/api/cart')
+app.use('/api/user', userRouter)
 
 // GLobal Error handler (middleware)
 app.use((err, req, res, next) => {

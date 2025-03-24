@@ -1,7 +1,7 @@
-// routes/users.routes.js
-const express = require('express');
-const userRouter = express.Router();
-const User = require('../models/User.js');
+import { Router } from "express";
+import User from "../models/User.js"
+
+export const userRouter = new Router();
 
 /**
  * GET /user Get all users
@@ -85,5 +85,3 @@ userRouter.delete('/:id', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
-
-module.exports = userRouter;
