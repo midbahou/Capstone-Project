@@ -3,22 +3,27 @@ import { Link } from 'react-router-dom'
 
 function HomePage() {
   const [quote, setQuote] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const fetchQuote = async () => {
     try {
       const res = await fetch("https://api.quotable.io/random");
       const data = await res.json();
       console.log(data);
-      setQuote(data)
+      setQuote(data);
+      setLoading(false);
     } catch (err) {
       console.error("Error fetching Quote data: ", err);
-
+setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchQuote();
-  }, [])
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (!quote) return <p>Quote not found.</p>;
 
   return (
 

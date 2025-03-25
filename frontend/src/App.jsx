@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 import ProductDetails from './pages/ProductDetails';
 import CartPage from './pages/CartPage';
 import EditProduct from './pages/EditProduct';
+import LoginPage from './pages/LoginPage';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Route path='/products/:id' element={ <ProductDetails /> }/>
       <Route path='/products/edit/:id' element={ <EditProduct /> }/>
       <Route path='/products/new' element={ <EditProduct /> }/>
+      <Route path='/login' element={ <LoginPage /> }/>
       <Route path='/cart' element={ <CartPage />}/>
      </Routes>
 

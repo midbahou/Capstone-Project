@@ -57,7 +57,7 @@ function ProductDetails() {
 
     return (
         <div className='p-6 flex flex-col items-center justify-center'>
-            <h1 className='text-3xl flex  font-bold text-gray-800 mb-6'>{product.name}</h1>
+            <h1 className='text-3xl font-bold text-gray-800 mb-6'>{product.name}</h1>
             <div className='flex flex-wrap md:flex-row gap-6'>
                 <img src={product.imageUrl} alt={product.name} className='w-full rounded-md md:w-1/2 h-96 object-cover' />
                 <div className='flex-1'>

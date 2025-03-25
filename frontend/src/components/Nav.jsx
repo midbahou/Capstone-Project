@@ -35,6 +35,13 @@ function Nav() {
                     </Link>
 
                     <Link
+                        to='/login'
+                        className='hover:text-gray-300 font-bold transition-colors'
+                    >
+                        Login
+                    </Link>
+
+                    <Link
                         to='/cart'
                         className="hover:text-gray-300 font-bold transition-colors"
                     >
