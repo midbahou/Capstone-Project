@@ -33,7 +33,7 @@ function Products() {
         return (
             <div className='p-6 bg-gray-200'>
                 <div className="flex justify-between items-center mb-6">
-                <h1 className='text-3xl font-bold flex text-gray-800 mb-6 mt-6'>Product Listings</h1>
+                <h1 className='text-3xl font-bold text-gray-800 mb-6 mt-6'>Product Listings</h1>
                 <Link
                 to='/products/new'
                 className="px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"

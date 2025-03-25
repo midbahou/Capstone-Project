@@ -7,6 +7,7 @@ import ProductDetails from './pages/ProductDetails';
 import CartPage from './pages/CartPage';
 import EditProduct from './pages/EditProduct';
 import LoginPage from './pages/LoginPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Route path='/products/new' element={ <EditProduct /> }/>
       <Route path='/login' element={ <LoginPage /> }/>
       <Route path='/cart' element={ <CartPage />}/>
+      <Route path='/about' element={ <AboutPage />}/>
      </Routes>
 
     </div>
