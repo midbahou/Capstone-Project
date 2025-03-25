@@ -56,14 +56,15 @@ function ProductDetails() {
 
 
     return (
-        <div className='p-6'>
-            <h1 className='text-3xl font-bold text-gray-800 mb-6'>{product.name}</h1>
+        <div className='p-6 flex flex-col items-center justify-center'>
+            <h1 className='text-3xl flex  font-bold text-gray-800 mb-6'>{product.name}</h1>
             <div className='flex flex-wrap md:flex-row gap-6'>
-                <img src={product.imageUrl} alt={product.name} className='w-full md:w-1/2 h-96 object-cover' />
+                <img src={product.imageUrl} alt={product.name} className='w-full rounded-md md:w-1/2 h-96 object-cover' />
                 <div className='flex-1'>
-                    <p className='text-gray-700 mb-4'><b>Product Description: </b>{product.description}</p>
-                    <p className='text-xl font-bold text-green-600 mb-4'><b>Price: </b>${product.price}</p>
+                    <p className='text-gray-700 mb-4'><b>Product Name: {product.name}</b></p>
                     <p className='text-gray-600 mb-4'><b>Category: </b>{product.category}</p>
+                    <p className='text-gray-700 mb-4'><b>Product Description: </b>{product.description}</p>
+                    <p className='text-xl font-bold text-green-600 mb-10'><b>Price: </b>${product.price}</p>
                     <button className='px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors cursor-pointer'>Add to Cart</button>
 
                     <Link
