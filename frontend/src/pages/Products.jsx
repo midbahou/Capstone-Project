@@ -26,7 +26,6 @@ function Products() {
         fetchProducts();
     }, []);
 
-    // if (!product) return <h1>Loading ...</h1>
 
     // Function to render products when data is loaded
     const loaded = () => {
@@ -54,9 +53,6 @@ function Products() {
                                     <h2 className="text-sm text-gray-400">
                                         Category: {category}
                                     </h2>
-                                    {/* <p className="text-sm text-gray-700 mt-2 line-clamp-2">
-                                        Description: {description}
-                                    </p> */}
                                     <h2 className="text-xl font-semibold text-green-600 mt-2">
                                         Price: ${price}
                                     </h2>
@@ -70,7 +66,7 @@ function Products() {
             </div>
         )
     };
-
+    
     // Function to render a loading message
     const loading = () => {
         return (
@@ -79,7 +75,7 @@ function Products() {
             </div>
         )
     };
-
+    
     // Render error message if there's an error
     if (error) {
         return (
@@ -88,9 +84,17 @@ function Products() {
             </div>
         )
     }
-
+    
     // Render products or loading message
     return products ? loaded() : loading();
 }
 
 export default Products;
+
+
+
+// I want to use the description in the product details page
+
+{/* <p className="text-sm text-gray-700 mt-2 line-clamp-2">
+    Description: {description}
+</p> */}

@@ -70,7 +70,7 @@ function AboutPage() {
                     Have questions or feedback? Reach out to us:
                 </p>
                 <ul className="list-disc list-inside text-gray-700">
-                    <li>Email: support@yourmarketplace.com</li>
+                    <li>Email: support@mymarketplace.com</li>
                     <li>Phone: +1 (123) 456-7890</li>
                     <li>Follow us on [Facebook] | [Twitter] | [Instagram]</li>
                 </ul>
