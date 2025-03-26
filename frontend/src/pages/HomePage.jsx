@@ -29,6 +29,7 @@ setLoading(false);
 
 
     <div className='min-h-screen bg-gray-100 flex flex-col items-center justify-center relative'>
+      {/* Banner image */}
       <div className='absolute top-0 w-full h-64'>
         <img 
         src="https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
@@ -37,7 +38,7 @@ setLoading(false);
          />
       </div>
       {/* Main content */}
-      <h1 className='text-5xl font-bold text-gray-800 mb-6'>Welcome to My Marketplace</h1>
+      <h1 className='text-5xl font-extrabold text-gray-800 mb-6'>Welcome to My Marketplace</h1>
       <p className='text-xl text-gray-600 mb-8'>Find the best products at unbeatable prices!</p>
       <Link
         to="/products"

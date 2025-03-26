@@ -23,7 +23,7 @@ productRouter.get("/", async (req, res) => {
 });
 
 /**
- * POST /products
+ * POST /products - Add new product
  */
 productRouter.post("/", async (req, res) => {
     try {
@@ -55,7 +55,7 @@ productRouter.get("/all", async (req, res) => {
 });
 
 /**
- * GET /products/:id
+ * GET /products/:id - Get product by ID
  */
 productRouter.get("/:id", async (req, res) => {
     try {
@@ -68,7 +68,7 @@ productRouter.get("/:id", async (req, res) => {
 });
 
 /**
- * PATCH /products/:id
+ * PATCH /products/:id - Update or Edit product id
  */
 productRouter.patch("/:id", async (req, res) => {
     try {
@@ -86,7 +86,7 @@ productRouter.patch("/:id", async (req, res) => {
 });
 
 /**
- * DELETE /products/:id
+ * DELETE /products/:id - delete product id
  */
 productRouter.delete("/:id", async (req, res) => {
     try {

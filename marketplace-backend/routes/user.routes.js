@@ -4,7 +4,7 @@ import User from "../models/User.js"
 export const userRouter = new Router();
 
 /**
- * GET /user Get all users
+ * GET /user - Get all users
  */ 
 userRouter.get('/', async (req, res) => {
     try {
@@ -16,7 +16,7 @@ userRouter.get('/', async (req, res) => {
 });
 
 /**
- * GET /user/:id Get a single user by ID
+ * GET /user/:id - Get a single user by ID
  */ 
 userRouter.get('/:id', async (req, res) => {
     try {
@@ -29,7 +29,7 @@ userRouter.get('/:id', async (req, res) => {
 });
 
 /**
- * POST /user Create a new user
+ * POST /user - Create a new user
  */
 userRouter.post('/', async (req, res) => {
     try {

@@ -43,9 +43,9 @@ app.get('/', (req, res) => {
 
 // API Routes 
 app.use('/api/health', healthRouter); // this is the path we want to send the request to healthRouter
-app.use('/api/products', productRouter);
-app.use('/api/products/:id', productRouter)
-app.use('/api/user', userRouter)
+app.use('/api/products', productRouter); // This is the path to our products route
+app.use('/api/products/:id', productRouter) // This is the path to the product ID route
+app.use('/api/user', userRouter) // This is the path to the user route
 
 // GLobal Error handler (middleware)
 app.use((err, req, res, next) => {
